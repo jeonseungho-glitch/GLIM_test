@@ -1,0 +1,21 @@
+#include <string>
+#include <vector>
+
+using namespace std;
+
+int solution(vector<vector<int>> board, int k) {
+    int answer = 0;
+    int rows = board.size();
+    int cols = board[0].size();
+
+    for (int i = 0; i < rows; i++) {
+        if (i > k) break;
+
+        for (int j = 0; j < cols; j++) {
+            if (i + j > k) break;
+
+            answer += board[i][j];
+        }
+    }
+    return answer;
+}
